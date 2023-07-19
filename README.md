@@ -1,2 +1,4 @@
 # arp_hunt.sh
 A script to look for missing hosts using Nmap and your arp cache
+
+This script first clears arp cache (this requires sudo), runs an nmap command to look for hosts in the listed IP range (192.168.0.1-254 listed as an example), creates a file with those values in it (macs.txt), confirms there is a hold.txt file (the previous run's macs.txt) file, and then compares the values from the macs.txt file to the hold.txt file. If there is no hold.txt file it copies the newly created macs.txt file to hold.txt and exits. I used this script to automate looking for hosts by mac when I was trying to figure out what device owned what mac address. For example, I run this script, turn of the device in question and then run the script again and see which mac address is missing. I turn the device back on and see if the mac address returns.
